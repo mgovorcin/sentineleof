@@ -117,8 +117,8 @@ def download_eofs(
         If there's an HTTP error during download that's not a rate limit error.
     """
     # TODO: condense list of same dates, different hours?
-    if missions and all(m not in ("S1A", "S1B", "S1C") for m in missions):
-        raise ValueError('missions argument must be "S1A", "S1B" or "S1C"')
+    if missions and all(m not in ("S1A", "S1B", "S1C", "S1D") for m in missions):
+        raise ValueError('missions argument must be "S1A", "S1B", "S1C", or "S1D"')
     if sentinel_file:
         sent = Sentinel(sentinel_file)
         orbit_dts, missions = [sent.start_time], [sent.mission]
@@ -306,7 +306,7 @@ def main(
         # Handle parsing in download_eof
         orbit_dts, missions = None, None
     elif date:
-        missions = [mission] if mission else ["S1A", "S1B", "S1C"]
+        missions = [mission] if mission else ["S1A", "S1B", "S1C", "S1D"]
         orbit_dts = [parse(date)] * len(missions)
         # Check they didn't pass a whole datetime
         if all((dt.hour == 0 and dt.minute == 0) for dt in orbit_dts):

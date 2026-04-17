@@ -108,6 +108,7 @@ class ASFClient:
             "S1A": [eof for eof in eof_list if eof.mission == "S1A"],
             "S1B": [eof for eof in eof_list if eof.mission == "S1B"],
             "S1C": [eof for eof in eof_list if eof.mission == "S1C"],
+            "S1D": [eof for eof in eof_list if eof.mission == "S1D"],
         }
 
         remaining_orbits = []

@@ -250,6 +250,9 @@ class Sentinel(Base):
             return ((self.absolute_orbit - 27) % 175) + 1
         elif self.mission == "S1C":
             return ((self.absolute_orbit - 172) % 175) + 1
+        elif self.mission == "S1D":
+            # Offset derived from abs=2389 -> rel=73; needs verification with ESA
+            return ((self.absolute_orbit - 42) % 175) + 1
         else:
             raise ValueError(f"Unknown relative orbit for mission {self.mission}")
 

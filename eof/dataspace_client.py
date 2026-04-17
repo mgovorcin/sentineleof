@@ -77,7 +77,7 @@ class DataspaceClient:
         satellite_id: str,
         product_type: str = "AUX_POEORB",
     ) -> list[dict]:
-        assert satellite_id in {"S1A", "S1B", "S1C"}
+        assert satellite_id in {"S1A", "S1B", "S1C", "S1D"}
         assert product_type in {"AUX_POEORB", "AUX_RESORB"}
         # return run_query(t0, t1, satellite_id, product_type)
         # Construct the query based on the time range parsed from the input file
